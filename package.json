@@ -1,0 +1,54 @@
+{
+  "name": "dsh-fold-turns",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "description": "Per-turn reply folding with native token usage, cache hit rate, accessible disclosure controls and usage details",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib/client.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-chat"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flangnocchi/dsh-fold-turns.git"
+  },
+  "homepage": "https://github.com/flangnocchi/dsh-fold-turns#readme",
+  "bugs": {
+    "url": "https://github.com/flangnocchi/dsh-fold-turns/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "chat",
+    "token-usage"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check lib/client.js && node --check tests/integration.cjs",
+    "test": "node tests/integration.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.57.0"
+  }
+}
